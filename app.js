@@ -12,11 +12,23 @@ app.set('view engine', 'twig');
 
 
 app.get('/', (req, res) => {
-    res.render('index.twig');
+    res.render('index.twig', {title: "Mon site qui tue"});
+})
+
+app.get('/blog', (req, res) => {
+    res.render('posts.twig');
+})
+
+app.get('/blog/:id', (req, res) => {
+    
+    let post = {
+        title: "ofdkofdjijfijf",
+        description: "'jifjijfdijfdjifij"
+    }
+    res.render('post.twig', post);
 })
 
 app.get('/services/:id', (req, res) => {
-    console.log(req.params.id);
     res.send('<html><body>Mes services</body></html>');
 })
 
